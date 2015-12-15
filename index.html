@@ -5,22 +5,27 @@
     <title>timers</title>
     <style type="text/css">
     canvas {
-        background-color: #ccc;
+/*        background-color: #ccc;*/
+                background-image: url("tatooine.jpg");
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-attachment: fixed;
+                background-size: cover;
     }
     </style>
 </head>
 
 <body>
-    <h3>Set Interval</h3>
+<!--     <h3>Set Interval</h3>
     <canvas id="setInterval" width="800" height="100"></canvas>
     <h3>Set Timeout</h3>
     <canvas id="setTimeout" width="800" height="100"></canvas>
     <h3>Request Animation Frame</h3>
-    <canvas id="raf" width="800" height="100"></canvas>
-    <h3>keyboard</h3>
-    <canvas id="kb" width="800" height="100"></canvas>
+    <canvas id="raf" width="800" height="100"></canvas> -->
+<!--     <h3>keyboard</h3> -->
+    <canvas id="kb" width="1920" height="1080"></canvas>
 
-    <p>Canvas is just creating an HTML5 element where you can paint the pixels. It creates an area that is just like the Processing sketches you make in programming class. Points to remember when working with canvas:
+<!--     <p>Canvas is just creating an HTML5 element where you can paint the pixels. It creates an area that is just like the Processing sketches you make in programming class. Points to remember when working with canvas:
     <ul>
     	<li>all drawing methods for canvas refer to the context of the canvas. Canvas is the HTML element. Context is the contents (pixels) of the context.</li>
     	<li>clearRect(x,y,w,h); is how you clear the pixels of the canvas. You can specify the amount (w,h) of the area you wish to clear, though you most often will just specify the full width and height of the canvas.</li>
@@ -41,17 +46,17 @@
 	<p><a href=""></a></p>
 	<p><a href="http://www.kirupa.com/html5/keyboard_events_in_javascript.htm">http://www.kirupa.com/html5/keyboard_events_in_javascript.htm</a></p>
 	<p><a href="http://www.siteforinfotech.com/2015/10/how-to-handle-keyboard-event-in-JavaScript.html">http://www.siteforinfotech.com/2015/10/how-to-handle-keyboard-event-in-JavaScript.html</a></p>
-	<p><a href="http://nokarma.org/2011/02/27/javascript-game-development-keyboard-input/">http://nokarma.org/2011/02/27/javascript-game-development-keyboard-input/ /br this presents a more advanced and optimized version of working with key events through objects. If you examine it in detail and research the concepts presented, it can lead to a more efficient way to code the keyboard.</a></p>
+	<p><a href="http://nokarma.org/2011/02/27/javascript-game-development-keyboard-input/">http://nokarma.org/2011/02/27/javascript-game-development-keyboard-input/ /br this presents a more advanced and optimized version of working with key events through objects. If you examine it in detail and research the concepts presented, it can lead to a more efficient way to code the keyboard.</a></p> -->
 
 
 
     <script type="text/javascript">
-    var ctx1 = document.getElementById('setInterval').getContext('2d');
-    var ctx2 = document.getElementById('setTimeout').getContext('2d');
-    var ctx3 = document.getElementById('raf').getContext('2d');
+    // var ctx1 = document.getElementById('setInterval').getContext('2d');
+    // var ctx2 = document.getElementById('setTimeout').getContext('2d');
+    // var ctx3 = document.getElementById('raf').getContext('2d');
     var ctx4 = document.getElementById('kb').getContext('2d');
-    var guyImage = new Image();
-    guyImage.src = "guy.png";
+    var jediImage = new Image();
+    jediImage.src = "jedi.png";
     var x1, x2, x3;
     var y, w, h;
     var speedX1, speedX2, speedX3;
@@ -60,63 +65,63 @@
     x2 = 0;
     x3 = 0;
     y = 10;
-    w = 72;
-    h = 80;
+    w = 50;
+    h = 50;
     speedX1 = 20;
     speedX2 = 20;
     speedX3 = 20;
     score1 = 0;
     score2 = 0;
     score3 = 0;
-    guyImage.addEventListener('load', startLoops, false);
+    jediImage.addEventListener('load', startLoops, false);
 
     function startLoops() {
-        timeoutLoop();
-        setInterval(intervalLoop, 1000 / 60);
-        window.requestAnimationFrame(rafLoop);
+        // timeoutLoop();
+        // setInterval(intervalLoop, 1000 / 60);
+        // window.requestAnimationFrame(rafLoop);
         window.requestAnimationFrame(keyLoop);
     }
 
-    function timeoutLoop() {
-        ctx1.clearRect(0, 0, 800, 100);
-        ctx1.drawImage(guyImage, x1, y, w, h);
-        x1 += speedX1;
-        if (x1 > 800 - w || x1 < 0) {
-            speedX1 *= -1;
-            score1++;
-        }
-        ctx1.fillText(score1, 5, 15);
-        setTimeout(timeoutLoop, 1000 / 60);
+    // function timeoutLoop() {
+    //     ctx1.clearRect(0, 0, 800, 100);
+    //     ctx1.drawImage(jediImage, x1, y, w, h);
+    //     x1 += speedX1;
+    //     if (x1 > 800 - w || x1 < 0) {
+    //         speedX1 *= -1;
+    //         score1++;
+    //     }
+    //     ctx1.fillText(score1, 5, 15);
+    //     setTimeout(timeoutLoop, 1000 / 60);
 
-    }
+    // }
 
-    function intervalLoop() {
-        ctx2.clearRect(0, 0, 800, 100);
-        ctx2.drawImage(guyImage, x2, y, w, h);
-        x2 += speedX2;
-        if (x2 > 800 - w || x2 < 0) {
-            speedX2 *= -1;
-            score2++;
-        }
-        ctx2.fillText(score2, 5, 15);
-        // setTimeout(loop,1000/60);
-    }
+    // function intervalLoop() {
+    //     ctx2.clearRect(0, 0, 800, 100);
+    //     ctx2.drawImage(jediImage, x2, y, w, h);
+    //     x2 += speedX2;
+    //     if (x2 > 800 - w || x2 < 0) {
+    //         speedX2 *= -1;
+    //         score2++;
+    //     }
+    //     ctx2.fillText(score2, 5, 15);
+    //     // setTimeout(loop,1000/60);
+    // }
 
-    function rafLoop() {
-        ctx3.clearRect(0, 0, 800, 100);
-        ctx3.drawImage(guyImage, x3, y, w, h);
-        x3 += speedX3;
-        if (x3 > 800 - w || x3 < 0) {
-            speedX3 *= -1;
-            score3++;
-        }
-        ctx3.fillText(score3, 5, 15);
-        window.requestAnimationFrame(rafLoop);
-    }
+    // function rafLoop() {
+    //     ctx3.clearRect(0, 0, 800, 100);
+    //     ctx3.drawImage(jediImage, x3, y, w, h);
+    //     x3 += speedX3;
+    //     if (x3 > 800 - w || x3 < 0) {
+    //         speedX3 *= -1;
+    //         score3++;
+    //     }
+    //     ctx3.fillText(score3, 5, 15);
+    //     window.requestAnimationFrame(rafLoop);
+    // }
 
 
     var xpos = 100;
-    var ypos = 0;
+    var ypos = 500;
     var left = false;
     var right = false
     var up = false;
@@ -182,8 +187,8 @@
         if (down) {
             ypos += 5;
         }
-        ctx4.clearRect(0, 0, 800, 100);
-        ctx4.drawImage(guyImage, xpos, ypos, w, h);
+        ctx4.clearRect(0, 0, 1920, 1080);
+        ctx4.drawImage(jediImage, xpos, ypos, w, h);
         window.requestAnimationFrame(keyLoop);
     }
     </script>
